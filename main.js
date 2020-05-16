@@ -79,7 +79,6 @@ const autoPlay = function() {
     }, 2000)
 }
 
-// 在 __main 入口函数里面调用全部事件
 const __main = function() {
     bindEvents()
     autoPlay()
