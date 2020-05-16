@@ -1,5 +1,4 @@
 const nextIndex = function(slide, offset) {
-
     let numberOfImgs = parseInt(slide.dataset.imgs, 10)
 
     let activeIndex = Number(slide.dataset.active)
@@ -7,7 +6,6 @@ const nextIndex = function(slide, offset) {
     let i = (activeIndex + offset + numberOfImgs) % numberOfImgs
     return i
 }
-
 
 const showImageAtIndex = function(slide, index) {
     let nextIndex = index
@@ -34,7 +32,6 @@ const showImageAtIndex = function(slide, index) {
     indicator.classList.add(indicatorClassName)
 }
 
-
 const bindEventSlide = function() {
     let selector = '.fire-slide-button'
     bindAll(selector, 'click', function(event) {
@@ -47,7 +44,6 @@ const bindEventSlide = function() {
         showImageAtIndex(slide, index)
     })
 }
-
 
 const bindEventIndicator = function() {
     let selector = '.fire-slide-indi'
