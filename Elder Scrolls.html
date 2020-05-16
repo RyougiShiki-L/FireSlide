@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            .fire-hide {
+                display: none;
+            }
+            .fire-menu-content {
+                height: 100px;
+                border: 1px solid red;
+            }
+            .fire-item {
+                /*display: inline-block;*/
+                /*opacity: 0.6;*/
+                filter: grayscale(100%);
+            }
+            .fire-item.fire-highlight {
+                filter: initial;
+                /*opacity: 1;*/
+            }
+            .fire-item.fire-highlight img {
+                width: 150px;
+                height: 150px;
+            }
+            img {
+                /*transition 这个 css 指定了某个属性发生变化的时候自动使用动画效果和动画时间*/
+                transition: width 1s, height 1s;
+            }
+            .fire-item img {
+                width: 100px;
+                height: 100px;
+            }
+
+            /*3. 轮播图*/
+            .fire-slide {
+                position: relative;
+                /*设置和图片 width 一样*/
+                width: 800px;
+            }
+            .fire-slide-image {
+                display: none;
+            }
+            /*fire-slide-image*/
+            .fire-active {
+                display: inline-block;
+            }
+            .fire-slide-button {
+                right: 0;
+                width: 30px;
+                height: 50px;
+                /*去掉边框厚度 border: none; 一个效果*/
+                border: 0;
+                color: #fff;
+                /*opacity 不透明度*/
+                opacity: 0.3;
+                background: #000;
+                /*去掉边框光晕 outline: 0; 一个效果*/
+                outline: none;
+            }
+            /*鼠标箭头变手*/
+            .fire-slide-button:hover {
+                cursor: pointer;
+            }
+            .fire-slide-button.fire-left {
+                left: 0;
+            }
+            .fire-slide-button.fire-right {
+                right: 0;
+            }
+            /*
+              垂直居中的套路
+             */
+            .fire-vertical-center {
+                position: absolute;
+                /* top: 50% 是距离页面顶部 50% 的距离*/
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            /*
+            水平居中的套路
+            */
+            .fire-slide-indicators {
+                position: absolute;
+                /* left: 50% 是距离页面左边 50% 的距离*/
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 10px;
+                text-align: center;
+            }
+            .fire-slide-indi {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: white;
+                cursor: pointer;
+            }
+            .fire-white {
+                background: #54cbc4;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 轮播图 -->
+        <div class="fire-3">
+            <!-- data-imgs 是图片的总数 -->
+            <!-- data-active 元素高亮 -->
+            <!-- data-active="0" 当前哪一张图片属于高亮的 -->
+            <div class="fire-slide" data-imgs="3" data-active="0">
+                <img id="id-fireimage-0" class="fire-slide-image fire-active" src="images/1.jpg" alt="">
+                <img id="id-fireimage-1" class="fire-slide-image" src="images/2.jpg" alt="">
+                <img id="id-fireimage-2" class="fire-slide-image" src="images/3.jpg" alt="">
+                <!-- &lt; 和 &gt; 是 HTML 转义符号, 也叫 HTML 实体-->
+                <button class="fire-slide-button fire-left fire-vertical-center" data-offset="-1">&lt;</button>
+                <button class="fire-slide-button fire-right fire-vertical-center" data-offset="1">&gt;</button>
+                <!-- fire-slide-indicators代表图片下方小圆点 -->
+                <div class="fire-slide-indicators">
+                    <div id="id-indicator-0" data-index="0" class="fire-slide-indi fire-white"></div>
+                    <div id="id-indicator-1" data-index="1" class="fire-slide-indi"></div>
+                    <div id="id-indicator-2" data-index="2" class="fire-slide-indi"></div>
+                </div>
+            </div>
+        </div>
+        <script src="tool/fireball.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
